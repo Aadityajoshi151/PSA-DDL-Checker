@@ -1,14 +1,18 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import filedialog
 
 root = Tk()
 root.title("PSA DDL Checker")
 
 class PSADDLChecker:
-
     def addseparator(self):
         self.urlbox.insert(END,"\n"+"*"*80+"\n")
 
+    def savefile(self):
+        data = [('Text Files', '*.txt*')]
+        filename = filedialog.asksaveasfilename(filetypes = data, defaultextension = data)
+        print(filename)
 
     def __init__(self,app):
         self.urlbox = Text(app,width=80,height=10)  
@@ -38,7 +42,7 @@ class PSADDLChecker:
         self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=self.addseparator)
         self.addseparatorbtn.grid(row=0,column=0,padx=5,pady=5)
 
-        self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt")
+        self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt",command=self.savefile)
         self.savebtn.grid(row=0,column=1,padx=5,pady=5)
         
         self.checkallbtn = ttk.Button(self.horizontalbtnsframe,text="Check All")
