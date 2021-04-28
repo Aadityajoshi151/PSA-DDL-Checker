@@ -5,6 +5,8 @@ import validators
 
 root = Tk()
 root.title("PSA DDL Checker")
+root.resizable("False","False")
+root.iconbitmap(default="icon.ico")
 
 class PSADDLChecker:
 
