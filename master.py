@@ -7,7 +7,7 @@ root = Tk()
 root.title("PSA DDL Checker")
 
 class PSADDLChecker:
-    
+
     def openurl(self,url):
         webbrowser.open(url,new=1)
 
@@ -46,8 +46,8 @@ class PSADDLChecker:
 
 
     def __init__(self,app):
-        self.urlbox = Text(app,width=80,height=10)  
-        self.urlbox.grid(row=0,column=0,padx=10,pady=10)
+        self.urlbox = Text(app,width=80,height=11)  
+        self.urlbox.grid(row=0,column=0,padx=10,pady=2)
 
         self.verticalbtnsframe = Frame(app)
         self.verticalbtnsframe.grid(row=0,column=1)
@@ -68,7 +68,13 @@ class PSADDLChecker:
         self.katfilebtn.grid(row=3,column=0,padx=5,pady=5)
 
         self.openloadbtn = ttk.Button(self.verticalbtnsframe,text="Openload Check",command=lambda: self.checkspecefic("openload.co"))
-        self.openloadbtn.grid(row=4,column=0,padx=5,pady=5)
+        self.openloadbtn.grid(row=4,column=0,padx=5)
+
+        self.megaloadbtn = ttk.Button(self.verticalbtnsframe,text="Megaload Check",command=lambda: self.checkspecefic("megaload"))
+        self.megaloadbtn.grid(row=5,column=0,padx=5,pady=5)
+
+        self.zippysharebtn = ttk.Button(self.verticalbtnsframe,text="Zippyshare Check",command=lambda: self.checkspecefic("zippyshare"))
+        self.zippysharebtn.grid(row=6,column=0,padx=5,pady=5)
 
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=lambda: self.urlbox.delete(1.0,END))
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
