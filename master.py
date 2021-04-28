@@ -7,21 +7,25 @@ root = Tk()
 root.title("PSA DDL Checker")
 
 class PSADDLChecker:
+    
     def openurl(self,url):
         webbrowser.open(url,new=1)
 
     def geturls(self):
         global urls
-        urls = self.urlbox.get(1.0,END).split("\n")
-    
-    def addseparator(self):
-        self.urlbox.insert(END,"\n"+"*"*80+"\n")
+        urls = self.urlbox.get(1.0,END).split("\n")    
 
     def savefile(self):
         filename = filedialog.asksaveasfile(title="Save File", mode='w', defaultextension=".txt",filetypes=[('Text Files', '.txt')])
         if filename is None:
             return
         filename.write(str(self.urlbox.get(1.0, END)))
+        filename.close()
+
+    def openfile(self):
+        filename = filedialog.askopenfilename(title="Open File", filetypes=(("Text Files", "*.txt"),))
+        filename = open(filename, 'r')
+        self.urlbox.insert(END,filename.read())
         filename.close()
 
     def checkall(self):
@@ -69,14 +73,17 @@ class PSADDLChecker:
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=lambda: self.urlbox.delete(1.0,END))
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
 
-        self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=self.addseparator)
-        self.addseparatorbtn.grid(row=0,column=1,padx=5,pady=5)
+        self.openbtn = ttk.Button(self.horizontalbtnsframe,text="Open .txt",command=self.openfile)
+        self.openbtn.grid(row=0,column=1,padx=5,pady=5)
+
+        self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=lambda: self.urlbox.insert(END,"\n"+"*"*80+"\n"))
+        self.addseparatorbtn.grid(row=0,column=2,padx=5,pady=5)
 
         self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt",command=self.savefile)
-        self.savebtn.grid(row=0,column=2,padx=5,pady=5)
+        self.savebtn.grid(row=0,column=3,padx=5,pady=5)
         
         self.checkallbtn = ttk.Button(self.horizontalbtnsframe,text="Check All",command=self.checkall)
-        self.checkallbtn.grid(row=0,column=3,padx=5,pady=5)
+        self.checkallbtn.grid(row=0,column=4,padx=5,pady=5)
 
 obj = PSADDLChecker(root)
 root.mainloop()
