@@ -1,6 +1,5 @@
 from tkinter import *
-from tkinter import ttk
-from tkinter import filedialog
+from tkinter import ttk,filedialog,messagebox
 import webbrowser
 import validators
 
@@ -30,6 +29,16 @@ class PSADDLChecker:
         for url in urls:
             if validators.url(url):
                 self.openurl(url)
+    
+    def checkspecefic(self,name):
+        flag=True
+        self.geturls()
+        for url in urls:
+            if name in url:
+                self.openurl(url)
+                flag=False
+        if flag:
+            messagebox.showerror("Not Found","No links with "+name+" was found")
 
 
     def __init__(self,app):
@@ -42,19 +51,19 @@ class PSADDLChecker:
         self.horizontalbtnsframe = Frame(app)
         self.horizontalbtnsframe.grid(row=1,column=0)
 
-        self.uptoboxbtn = ttk.Button(self.verticalbtnsframe,text="Uptobox Check")
+        self.uptoboxbtn = ttk.Button(self.verticalbtnsframe,text="Uptobox Check",command=lambda: self.checkspecefic("uptobox"))
         self.uptoboxbtn.grid(row=0,column=0,padx=5,pady=5)
 
-        self.megabtn = ttk.Button(self.verticalbtnsframe,text="Mega Check")
+        self.megabtn = ttk.Button(self.verticalbtnsframe,text="Mega Check",command=lambda: self.checkspecefic("mega.nz"))
         self.megabtn.grid(row=1,column=0,padx=5,pady=5)
 
-        self.nitroflarebtn = ttk.Button(self.verticalbtnsframe,text="Nitroflare Check")
+        self.nitroflarebtn = ttk.Button(self.verticalbtnsframe,text="Nitroflare Check",command=lambda: self.checkspecefic("nitroflare"))
         self.nitroflarebtn.grid(row=2,column=0,padx=5,pady=5)
 
-        self.katfilebtn = ttk.Button(self.verticalbtnsframe,text="Katfile Check")
+        self.katfilebtn = ttk.Button(self.verticalbtnsframe,text="Katfile Check",command=lambda: self.checkspecefic("katfile"))
         self.katfilebtn.grid(row=3,column=0,padx=5,pady=5)
 
-        self.openloadbtn = ttk.Button(self.verticalbtnsframe,text="Openload Check")
+        self.openloadbtn = ttk.Button(self.verticalbtnsframe,text="Openload Check",command=lambda: self.checkspecefic("openload.co"))
         self.openloadbtn.grid(row=4,column=0,padx=5,pady=5)
 
         self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=self.addseparator)
