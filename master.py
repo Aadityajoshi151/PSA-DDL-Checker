@@ -3,11 +3,6 @@ from tkinter import ttk,filedialog,messagebox
 import webbrowser
 import validators
 
-root = Tk()
-root.title("PSA DDL Checker")
-root.resizable("False","False")
-root.iconbitmap(default="icon.ico")
-
 class PSADDLChecker:
 
     def openurl(self,url):
@@ -93,5 +88,13 @@ class PSADDLChecker:
         self.checkallbtn = ttk.Button(self.horizontalbtnsframe,text="Check All",command=self.checkall)
         self.checkallbtn.grid(row=0,column=4,padx=5,pady=5)
 
-obj = PSADDLChecker(root)
-root.mainloop()
+def main():
+    root = Tk()
+    root.title("PSA DDL Checker")
+    root.resizable("False","False")
+    root.iconbitmap(default="icon.ico")
+    obj = PSADDLChecker(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
