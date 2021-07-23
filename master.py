@@ -43,7 +43,7 @@ class PSADDLChecker:
 
 
     def __init__(self,app):
-        self.urlbox = Text(app,width=80,height=11)  
+        self.urlbox = Text(app,width=80,height=15)  
         self.urlbox.grid(row=0,column=0,padx=10,pady=2)
 
         self.verticalbtnsframe = Frame(app)
@@ -72,6 +72,9 @@ class PSADDLChecker:
 
         self.zippysharebtn = ttk.Button(self.verticalbtnsframe,text="Zippyshare Check",command=lambda: self.checkspecefic("zippyshare"))
         self.zippysharebtn.grid(row=6,column=0,padx=5,pady=5)
+
+        self.anonfilesbtn = ttk.Button(self.verticalbtnsframe,text="Anonfiles Check",command=lambda: self.checkspecefic("anonfiles"))
+        self.anonfilesbtn.grid(row=7,column=0,padx=5,pady=5)
 
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=lambda: self.urlbox.delete(1.0,END))
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
