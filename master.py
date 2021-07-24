@@ -31,11 +31,11 @@ class PSADDLChecker:
             if validators.url(url):
                 self.openurl(url)
     
-    # def checkselection(self):
-    #     selectedurls = self.urlbox.selection_get().split("\n")
-    #     for url in selectedurls:
-    #         if validators.url(url):
-    #             self.openurl(url)
+    def checkselection(self):
+        selectedurls = self.urlbox.selection_get().split("\n")
+        for url in selectedurls:
+            if validators.url(url):
+                self.openurl(url)
     
     def checkspecefic(self,name):
         flag=True
