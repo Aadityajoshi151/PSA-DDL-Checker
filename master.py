@@ -31,6 +31,12 @@ class PSADDLChecker:
             if validators.url(url):
                 self.openurl(url)
     
+    # def checkselection(self):
+    #     selectedurls = self.urlbox.selection_get().split("\n")
+    #     for url in selectedurls:
+    #         if validators.url(url):
+    #             self.openurl(url)
+    
     def checkspecefic(self,name):
         flag=True
         self.geturls()
@@ -87,9 +93,12 @@ class PSADDLChecker:
 
         self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt",command=self.savefile)
         self.savebtn.grid(row=0,column=3,padx=5,pady=5)
+
+        self.checkselectionbtn = ttk.Button(self.horizontalbtnsframe,text="Check Selection",command=self.checkselection)
+        self.checkselectionbtn.grid(row=0,column=4,padx=5,pady=5)
         
         self.checkallbtn = ttk.Button(self.horizontalbtnsframe,text="Check All",command=self.checkall)
-        self.checkallbtn.grid(row=0,column=4,padx=5,pady=5)
+        self.checkallbtn.grid(row=0,column=5,padx=5,pady=5)
 
 def main():
     root = Tk()
