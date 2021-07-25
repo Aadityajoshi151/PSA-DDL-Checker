@@ -51,7 +51,7 @@ class PSADDLChecker:
 
 
     def __init__(self,app):
-        self.urlbox = Text(app,width=80,height=15)  
+        self.urlbox = Text(app,width=90,height=24)  
         self.urlbox.grid(row=0,column=0,padx=10,pady=2)
 
         self.verticalbtnsframe = Frame(app)
