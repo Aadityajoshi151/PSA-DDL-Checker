@@ -64,14 +64,14 @@ class PSADDLChecker:
         self.megabtn = ttk.Button(self.verticalbtnsframe,text="Mega Check",command=lambda: self.checkspecefic("mega.nz"))
         self.megabtn.grid(row=1,column=0,padx=5,pady=5)
 
-        self.nitroflarebtn = ttk.Button(self.verticalbtnsframe,text="Nitroflare Check",command=lambda: self.checkspecefic("nitroflare"))
-        self.nitroflarebtn.grid(row=2,column=0,padx=5,pady=5)
+        self.sendcmbtn = ttk.Button(self.verticalbtnsframe,text="Send.cm Check",command=lambda: self.checkspecefic("send.cm"))
+        self.sendcmbtn.grid(row=2,column=0,padx=5,pady=5)
 
         self.katfilebtn = ttk.Button(self.verticalbtnsframe,text="Katfile Check",command=lambda: self.checkspecefic("katfile"))
         self.katfilebtn.grid(row=3,column=0,padx=5,pady=5)
 
-        self.openloadbtn = ttk.Button(self.verticalbtnsframe,text="Openload Check",command=lambda: self.checkspecefic("openload.co"))
-        self.openloadbtn.grid(row=4,column=0,padx=5)
+        self.clicknuploadbtn = ttk.Button(self.verticalbtnsframe,text="Clicknupload Check",command=lambda: self.checkspecefic("clicknupload"))
+        self.clicknuploadbtn.grid(row=4,column=0,padx=5)
 
         self.megaloadbtn = ttk.Button(self.verticalbtnsframe,text="Megaload Check",command=lambda: self.checkspecefic("megaload"))
         self.megaloadbtn.grid(row=5,column=0,padx=5,pady=5)
@@ -81,6 +81,18 @@ class PSADDLChecker:
 
         self.anonfilesbtn = ttk.Button(self.verticalbtnsframe,text="Anonfiles Check",command=lambda: self.checkspecefic("anonfiles"))
         self.anonfilesbtn.grid(row=7,column=0,padx=5,pady=5)
+
+        self.bayfilesbtn = ttk.Button(self.verticalbtnsframe,text="Bayfiles Check",command=lambda: self.checkspecefic("bayfiles"))
+        self.bayfilesbtn.grid(row=8,column=0,padx=5,pady=5)
+
+        self.ddownloadbtn = ttk.Button(self.verticalbtnsframe,text="Ddownload Check",command=lambda: self.checkspecefic("ddownload"))
+        self.ddownloadbtn.grid(row=9,column=0,padx=5,pady=5)
+
+        self.megaupbtn = ttk.Button(self.verticalbtnsframe,text="Megaup Check",command=lambda: self.checkspecefic("megaup"))
+        self.megaupbtn.grid(row=10,column=0,padx=5,pady=5)
+
+        # self.bayfilesbtn = ttk.Button(self.verticalbtnsframe,text="Bayfiles Check",command=lambda: self.checkspecefic("bayfiles"))
+        # self.bayfilesbtn.grid(row=11,column=0,padx=5,pady=5)
 
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=lambda: self.urlbox.delete(1.0,END))
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
