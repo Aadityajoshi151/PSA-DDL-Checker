@@ -20,8 +20,10 @@ class PSADDLChecker:
         filename.close()
 
     def openfile(self):
+        
         filename = filedialog.askopenfilename(title="Open File", filetypes=(("Text Files", "*.txt"),))
         filename = open(filename, 'r')
+        self.urlbox.delete(1.0,END)
         self.urlbox.insert(END,filename.read())
         filename.close()
 
@@ -91,8 +93,8 @@ class PSADDLChecker:
         self.megaupbtn = ttk.Button(self.verticalbtnsframe,text="Megaup Check",command=lambda: self.checkspecefic("megaup"))
         self.megaupbtn.grid(row=10,column=0,padx=5,pady=5)
 
-        # self.bayfilesbtn = ttk.Button(self.verticalbtnsframe,text="Bayfiles Check",command=lambda: self.checkspecefic("bayfiles"))
-        # self.bayfilesbtn.grid(row=11,column=0,padx=5,pady=5)
+        self.dropapkbtn = ttk.Button(self.verticalbtnsframe,text="Dropapk Check",command=lambda: self.checkspecefic("dropapk"))
+        self.dropapkbtn.grid(row=11,column=0,padx=5,pady=5)
 
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=lambda: self.urlbox.delete(1.0,END))
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
