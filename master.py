@@ -94,10 +94,10 @@ class PSADDLChecker:
         self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt",command=self.savefile)
         self.savebtn.grid(row=0,column=3,padx=5,pady=5)
 
-        self.checkselectionbtn = ttk.Button(self.horizontalbtnsframe,text="Check Selection",command=self.checkselection)
+        self.checkselectionbtn = Button(self.horizontalbtnsframe,text="Check Selection",fg="green",command=self.checkselection)
         self.checkselectionbtn.grid(row=0,column=4,padx=5,pady=5)
         
-        self.checkallbtn = ttk.Button(self.horizontalbtnsframe,text="Check All",command=self.checkall)
+        self.checkallbtn = Button(self.horizontalbtnsframe,text="Check All",fg="red",command=self.checkall)
         self.checkallbtn.grid(row=0,column=5,padx=5,pady=5)
 
 def main():
