@@ -87,7 +87,7 @@ class PSADDLChecker:
         self.bayfilesbtn = ttk.Button(self.verticalbtnsframe,text="Bayfiles Check",command=lambda: self.checkspecefic("bayfiles"))
         self.bayfilesbtn.grid(row=8,column=0,padx=5,pady=5)
 
-        self.ddownloadbtn = ttk.Button(self.verticalbtnsframe,text="Ddownload Check",command=lambda: self.checkspecefic("ddownload"))
+        self.ddownloadbtn = ttk.Button(self.verticalbtnsframe,text="DDownload Check",command=lambda: self.checkspecefic("ddownload"))
         self.ddownloadbtn.grid(row=9,column=0,padx=5,pady=5)
 
         self.megaupbtn = ttk.Button(self.verticalbtnsframe,text="Megaup Check",command=lambda: self.checkspecefic("megaup"))
