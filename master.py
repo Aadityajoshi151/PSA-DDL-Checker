@@ -23,7 +23,7 @@ class PSADDLChecker:
         
         filename = filedialog.askopenfilename(title="Open File", filetypes=(("Text Files", "*.txt"),))
         filename = open(filename, 'r')
-        self.urlbox.delete(1.0,END)
+        self.clearURLbox()
         self.urlbox.insert(END,filename.read())
         filename.close()
 
@@ -48,6 +48,9 @@ class PSADDLChecker:
                 flag=False
         if flag:
             messagebox.showerror("Not Found","No links with "+name+" was found")
+
+    def clearURLbox(self):
+        self.urlbox.delete(1.0,END)
 
 
     def __init__(self,app):
@@ -96,7 +99,7 @@ class PSADDLChecker:
         self.dropapkbtn = ttk.Button(self.verticalbtnsframe,text="Dropapk Check",command=lambda: self.checkspecefic("dropapk"))
         self.dropapkbtn.grid(row=11,column=0,padx=5,pady=5)
 
-        self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=lambda: self.urlbox.delete(1.0,END))
+        self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=self.clearURLbox)
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
 
         self.openbtn = ttk.Button(self.horizontalbtnsframe,text="Open .txt",command=self.openfile)
