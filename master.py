@@ -34,10 +34,14 @@ class PSADDLChecker:
                 self.openurl(url)
     
     def checkselection(self):
-        selectedurls = self.urlbox.selection_get().split("\n")
-        for url in selectedurls:
-            if validators.url(url):
-                self.openurl(url)
+        try:
+            selectedurls = self.urlbox.selection_get().split("\n")
+            for url in selectedurls:
+                if validators.url(url):
+                    self.openurl(url)
+        except:
+            messagebox.showerror("No Selection","Please Select Something")
+
     
     def checkspecefic(self,name):
         flag=True
