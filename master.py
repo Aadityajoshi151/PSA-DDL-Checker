@@ -109,7 +109,7 @@ class PSADDLChecker:
         self.openbtn = ttk.Button(self.horizontalbtnsframe,text="Open .txt",command=self.openfile)
         self.openbtn.grid(row=0,column=1,padx=5,pady=5)
 
-        self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=lambda: self.urlbox.insert(END,"\n"+"*"*80+"\n"))
+        self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=lambda: self.urlbox.insert(END,"*"*80+"\n"))
         self.addseparatorbtn.grid(row=0,column=2,padx=5,pady=5)
 
         self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt",command=self.savefile)
