@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk,filedialog,messagebox
+import tkinter.scrolledtext as scrolledtext
 import webbrowser
 import validators
 
@@ -29,9 +30,11 @@ class PSADDLChecker:
 
     def checkall(self):
         self.geturls()
-        for url in urls:
-            if validators.url(url):
-                self.openurl(url)
+        open_all_response= messagebox.askyesno("Are You Sure",f"This may open {len(urls)-1} tabs. Are you sure you want to open them all?")
+        if open_all_response:
+            for url in urls:
+                if validators.url(url):
+                    self.openurl(url)
     
     def checkselection(self):
         try:
@@ -58,7 +61,7 @@ class PSADDLChecker:
 
 
     def __init__(self,app):
-        self.urlbox = Text(app,width=90,height=24)  
+        self.urlbox = scrolledtext.ScrolledText(app,width=90,height=24,undo=True)  
         self.urlbox.grid(row=0,column=0,padx=10,pady=2)
 
         self.verticalbtnsframe = Frame(app)
