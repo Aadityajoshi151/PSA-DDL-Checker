@@ -30,7 +30,7 @@ class PSADDLChecker:
 
     def checkall(self):
         self.geturls()
-        open_all_response= messagebox.askyesno("Are You Sure",f"This may open {len(urls)-1} tabs. Are you sure you want to open them all?")
+        open_all_response= messagebox.askyesno("Are You Sure",f"This may open {len(urls)-1} tabs. Are you sure you want to proceed?")
         if open_all_response:
             for url in urls:
                 if validators.url(url):
