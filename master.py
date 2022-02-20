@@ -3,11 +3,15 @@ from tkinter import ttk,filedialog,messagebox
 import tkinter.scrolledtext as scrolledtext
 import webbrowser
 import validators
+import platform
 
 class PSADDLChecker:
 
     def openurl(self,url):
-        webbrowser.open(url,new=1)
+        if OS_WINDOWS:
+            webbrowser.open(url,new=1)
+        else:
+            webbrowser.open_new_tab(url)
 
     def geturls(self):
         global urls
@@ -21,7 +25,6 @@ class PSADDLChecker:
         filename.close()
 
     def openfile(self):
-        
         filename = filedialog.askopenfilename(title="Open File", filetypes=(("Text Files", "*.txt"),))
         filename = open(filename, 'r')
         self.clearURLbox()
@@ -44,8 +47,7 @@ class PSADDLChecker:
                     self.openurl(url)
         except:
             messagebox.showerror("No Selection","Please Select Something")
-
-    
+  
     def checkspecefic(self,name):
         flag=True
         self.geturls()
@@ -58,7 +60,6 @@ class PSADDLChecker:
 
     def clearURLbox(self):
         self.urlbox.delete(1.0,END)
-
 
     def __init__(self,app):
         self.urlbox = scrolledtext.ScrolledText(app,width=90,height=24,undo=True)  
@@ -125,10 +126,14 @@ class PSADDLChecker:
         self.checkallbtn.grid(row=0,column=5,padx=5,pady=5)
 
 def main():
+    global OS_WINDOWS
+    if platform.system() == 'Windows': OS_WINDOWS = True
+    else: OS_WINDOWS = False
     root = Tk()
     root.title("PSA DDL Checker")
     root.resizable("False","False")
-    root.iconbitmap(default="icon.ico")
+    if OS_WINDOWS:
+        root.iconbitmap(default="assets/icon.ico")
     obj = PSADDLChecker(root)
     root.mainloop()
 
