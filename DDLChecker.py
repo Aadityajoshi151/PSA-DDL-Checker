@@ -36,7 +36,7 @@ class PSADDLChecker:
         if urls[0] == "" and urls[1] == "":
             messagebox.showerror("No URLS","No URLs present")
             return
-        open_all_response= messagebox.askyesno("Are You Sure",f"This may open {len(urls)-1} tabs. Are you sure you want to proceed?")
+        open_all_response= messagebox.askyesno("Are You Sure",f"This may open <={len(urls)-1} tabs. Are you sure you want to proceed?")
         if open_all_response:
             for url in urls:
                 if validators.url(url):
