@@ -4,6 +4,7 @@ import tkinter.scrolledtext as scrolledtext
 import webbrowser
 import validators
 import platform
+import pyperclip
 
 class PSADDLChecker:
 
@@ -64,6 +65,21 @@ class PSADDLChecker:
     def clearURLbox(self):
         self.urlbox.delete(1.0,END)
 
+    def copySpeceficLinks(self, event, name):
+        specefic_urls = ""
+        flag=True
+        self.geturls()
+        for url in urls:
+            if name in url:
+                specefic_urls+=f"{url}\n"
+                flag=False
+        if flag:
+            messagebox.showerror("Not Found","No links with "+name+" was found")
+        else:
+            pyperclip.copy(specefic_urls)
+            print(specefic_urls.count("\n"))
+            messagebox.showinfo("Copied",str(specefic_urls.count("\n"))+" "+name+" urls copied to clipboard")
+
     def __init__(self,app):
         Buttons = ['Uptobox','Mega.nz','Send.cm','Katfile','Clicknupload','Megaload','Zippyshare','Anonfiles','Bayfiles','DDownload','Megaup','Dropapk']
         self.urlbox = scrolledtext.ScrolledText(app,width=90,height=24,undo=True)  
@@ -78,6 +94,7 @@ class PSADDLChecker:
         for i in range(len(Buttons)):
             self.b = ttk.Button(self.verticalbtnsframe, text=f'{Buttons[i]} Check', command=lambda i=i: self.checkspecefic(Buttons[i].lower()))
             self.b.grid(row=i, column=0,padx=5,pady=5)
+            self.b.bind('<Button-3>',lambda event,i=i: self.copySpeceficLinks(event,Buttons[i].lower()))
 
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=self.clearURLbox)
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
