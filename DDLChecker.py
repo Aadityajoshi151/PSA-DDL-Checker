@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk,filedialog,messagebox
 import tkinter.scrolledtext as scrolledtext
+from idlelib.tooltip import Hovertip
 import webbrowser
 import validators
 import platform
@@ -95,6 +96,7 @@ class PSADDLChecker:
             self.b = ttk.Button(self.verticalbtnsframe, text=f'{Buttons[i]} Check', command=lambda i=i: self.checkspecefic(Buttons[i].lower()))
             self.b.grid(row=i, column=0,padx=5,pady=5)
             self.b.bind('<Button-3>',lambda event,i=i: self.copySpeceficLinks(event,Buttons[i].lower()))
+            self.tooltip = Hovertip(self.b, f'Right click to copy all {Buttons[i].lower()} links to the clipboard')
 
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=self.clearURLbox)
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
