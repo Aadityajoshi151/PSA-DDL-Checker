@@ -101,20 +101,14 @@ class PSADDLChecker:
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=self.clearURLbox)
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
 
-        self.openbtn = ttk.Button(self.horizontalbtnsframe,text="Open .txt",command=self.openfile)
-        self.openbtn.grid(row=0,column=1,padx=5,pady=5)
-
         self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=lambda: self.urlbox.insert(END,"*"*80+"\n"))
-        self.addseparatorbtn.grid(row=0,column=2,padx=5,pady=5)
+        self.addseparatorbtn.grid(row=0,column=1,padx=5,pady=5)
 
-        self.savebtn = ttk.Button(self.horizontalbtnsframe,text="Save .txt",command=self.savefile)
-        self.savebtn.grid(row=0,column=3,padx=5,pady=5)
-
-        self.checkselectionbtn = Button(self.horizontalbtnsframe,text="Check Selection",fg="green",command=self.checkselection)
-        self.checkselectionbtn.grid(row=0,column=4,padx=5,pady=5)
+        self.checkselectionbtn = ttk.Button(self.horizontalbtnsframe,text="Check Selection",command=self.checkselection)
+        self.checkselectionbtn.grid(row=0,column=2,padx=5,pady=5)
         
-        self.checkallbtn = Button(self.horizontalbtnsframe,text="Check All",fg="red",command=self.checkall)
-        self.checkallbtn.grid(row=0,column=5,padx=5,pady=5)
+        self.checkallbtn = ttk.Button(self.horizontalbtnsframe,text="Check All",command=self.checkall)
+        self.checkallbtn.grid(row=0,column=3,padx=5,pady=5)
 
 def main():
     global OS_WINDOWS
@@ -126,6 +120,15 @@ def main():
     if OS_WINDOWS:
         root.iconbitmap(default="assets/icon.ico")
     obj = PSADDLChecker(root)
+    mymenu = Menu(root)
+    root.config(menu=mymenu)
+    # File Menu
+    myfilemenu = Menu(mymenu, tearoff=False)
+    mymenu.add_cascade(label="File", menu=myfilemenu)
+    myfilemenu.add_command(label="Open .txt file",command=obj.openfile)
+    myfilemenu.add_command(label="Save .txt file",command=obj.savefile)
+    myfilemenu.add_separator()
+    myfilemenu.add_command(label="Quit", command=lambda: root.quit())
     root.mainloop()
 
 if __name__ == "__main__":
