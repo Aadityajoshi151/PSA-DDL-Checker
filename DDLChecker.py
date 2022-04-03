@@ -19,14 +19,14 @@ class PSADDLChecker:
         global urls
         urls = self.urlbox.get(1.0,END).split("\n")    
 
-    def savefile(self, event):
+    def savefile(self):
         filename = filedialog.asksaveasfile(title="Save File", mode='w', defaultextension=".txt",filetypes=[('Text Files', '.txt')])
         if filename is None:
             return
         filename.write(str(self.urlbox.get(1.0, END)))
         filename.close()
 
-    def openfile(self, event):
+    def openfile(self):
         filename = filedialog.askopenfilename(title="Open File", filetypes=(("Text Files", "*.txt"),))
         filename = open(filename, 'r')
         self.clearURLbox()
@@ -129,8 +129,6 @@ def main():
     myfilemenu.add_command(label="Save .txt file (Ctrl+S)",command=obj.savefile)
     myfilemenu.add_separator()
     myfilemenu.add_command(label="Quit", command=lambda: root.quit())
-    root.bind('<Control-o>', obj.openfile)
-    root.bind('<Control-s>', obj.savefile)
     root.mainloop()
 
 if __name__ == "__main__":
