@@ -101,7 +101,7 @@ class PSADDLChecker:
         self.clearbtn = ttk.Button(self.horizontalbtnsframe,text="Clear",command=self.clearURLbox)
         self.clearbtn.grid(row=0,column=0,padx=5,pady=5)
 
-        self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=lambda: self.urlbox.insert(END,"*"*80+"\n"))
+        self.addseparatorbtn = ttk.Button(self.horizontalbtnsframe,text="Add Separator",command=lambda: self.urlbox.insert(END,"\n"+"*"*80+"\n"))
         self.addseparatorbtn.grid(row=0,column=1,padx=5,pady=5)
 
         self.checkselectionbtn = ttk.Button(self.horizontalbtnsframe,text="Check Selection",command=self.checkselection)
