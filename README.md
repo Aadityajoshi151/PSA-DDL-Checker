@@ -2,19 +2,23 @@
 
 Small utility for the checking/opening the direct download liks from PSARips.
 
-## 📥 Download Latest Version:
-
-<a href="" alt="Download For Windows">
-        <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" /></a>
-<a href="https://github.com/Aadityajoshi151/PSA-DDL-Checker/releases/download/v1.0/PSA.DDL.Checker.-.Linux.zip" alt="Download For Linux">
-        <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" /></a>
-
 ## 🔧 Features:
 - Dedicated buttons for most-used websites. For example, "uptobox" button opens all the uptobox links present in the box.
 - Option to open and save .txt files.
 - Open all links present in the box at once.
 - Open only the selected links.
 - Separator button for separating links for different episodes/parts.
+
+## 🔨 How To Use:
+**Step 0)** Install Python. Click [here](https://www.python.org/downloads/ "here") to go to the official downloads page.
+
+**Step 1)** Clone this repository by using the command:
+`git clone https://github.com/Aadityajoshi151/PSA-DDL-Checker.git`
+
+**Step 2)** Open a command prompt in the project directory. Enter the command
+`pip install -r requirements.txt` to install the required modules.
+
+**Step 3)** Run the script by using the command `python DDLChecker.py` or `python3 DDLChecker.py` if you are on linux.
 
 ## 📷 Screenshots:
 ### Windows:
