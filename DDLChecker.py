@@ -125,8 +125,8 @@ def main():
     # File Menu
     myfilemenu = Menu(mymenu, tearoff=False)
     mymenu.add_cascade(label="File", menu=myfilemenu)
-    myfilemenu.add_command(label="Open .txt file (Ctrl+O)",command=obj.openfile)
-    myfilemenu.add_command(label="Save .txt file (Ctrl+S)",command=obj.savefile)
+    myfilemenu.add_command(label="Open .txt file",command=obj.openfile)
+    myfilemenu.add_command(label="Save .txt file",command=obj.savefile)
     myfilemenu.add_separator()
     myfilemenu.add_command(label="Quit", command=lambda: root.quit())
     root.mainloop()
