@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "PSA DDL Checker",
+    "description": "Simple extension to opening/checking DDLs from PSArips. Contains buttons for most used hosters.",
+    "version": "1.0",
+    "icons":{
+        "512": "assets/link.png"
+    },
+    "action": {
+        "default_icon": "assets/link.png",
+        "default_popup": "src/index.html"
+    },
+    "permissions": ["tabs","activeTab"]
+
+}
