@@ -5,6 +5,14 @@ textarea
 
 button
 {
-    margin-left: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
+}
+#container
+{
+    display: flex;
+}
+#hoster_btns
+{
+    display: block;
+
 }

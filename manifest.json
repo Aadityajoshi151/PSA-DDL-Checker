@@ -4,10 +4,10 @@
     "description": "Simple extension to opening/checking DDLs from PSArips. Contains buttons for most used hosters.",
     "version": "1.0",
     "icons":{
-        "512": "assets/link.png"
+        "512": "assets/scorpion.png"
     },
     "action": {
-        "default_icon": "assets/link.png",
+        "default_icon": "assets/scorpion.png",
         "default_popup": "src/index.html"
     },
     "permissions": ["tabs","activeTab"]
