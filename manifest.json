@@ -10,6 +10,6 @@
         "default_icon": "assets/scorpion.png",
         "default_popup": "src/index.html"
     },
-    "permissions": ["tabs","activeTab"]
+    "permissions": ["tabs"]
 
 }
