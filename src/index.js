@@ -2,7 +2,8 @@ var urlbox = document.getElementById("urlbox");
 urlbox.focus();
 
 document.getElementById("open_all_btn").addEventListener("click", function(){
-    getURLs();
+    urls = getURLs();
+    openAll(urls);
 })
 
 document.getElementById("clear_btn").addEventListener("click", function(){
@@ -20,11 +21,26 @@ for(i=0; i<hoster_btns.length;i++)
 {
     hoster_btns[i].addEventListener("click",function(){
         alert(this.innerHTML);
+        openSpecefic(this.innerHTML);
     })
+}
+function openSpecefic(hoster){
+    urls = getURLs();
+    for (i=0; i<urls.length;i++)
+    {
+        if (urls[i].includes(hoster.toLowerCase()))
+        {
+            openURL(urls[i])
+        }
+    }
 }
 function getURLs()
 {
     var urls = urlbox.value.split("\n");
+    return urls;
+
+}
+function openAll(urls){
     for(i=0; i<urls.length; i++)
     {
         openURL(urls[i]);
