@@ -2,7 +2,7 @@ var urlbox = document.getElementById("urlbox");
 urlbox.focus();
 
 document.getElementById("open_all_btn").addEventListener("click", function(){
-    getUrls();
+    getURLs();
 })
 
 document.getElementById("clear_btn").addEventListener("click", function(){
@@ -22,14 +22,18 @@ for(i=0; i<hoster_btns.length;i++)
         alert(this.innerHTML);
     })
 }
-function getUrls()
+function getURLs()
 {
     var urls = urlbox.value.split("\n");
     for(i=0; i<urls.length; i++)
-    {     
-        window.open(urls[i], '_wnd' + i);
-    }
-    
-
-    
+    {
+        openURL(urls[i]);
+    } 
+}
+function openURL(url){
+    //This is the function that opens a URL in a new tab
+    chrome.tabs.create({
+        active: false,
+        url,
+    });
 }
